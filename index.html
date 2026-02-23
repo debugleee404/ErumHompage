@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이룸라운지 | ERUM LOUNGE</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#hero" class="logo" aria-label="홈으로">
+        <img id="logo-img" class="logo-img" src="" alt="이룸" />
+        <span class="logo-text">
+          <span class="logo-main" id="logo-name-kr">이룸라운지</span>
+          <span class="logo-sub" id="logo-name-en">ERUM LOUNGE</span>
+        </span>
+      </a>
+      <nav class="nav-desktop" id="nav-desktop" aria-label="메인 메뉴"></nav>
+      <button type="button" class="hamburger" id="hamburger" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <div class="menu-overlay" id="menu-overlay" aria-hidden="true"></div>
+  <nav class="menu-drawer" id="menu-drawer" aria-label="모바일 메뉴"></nav>
+
+  <main>
+    <section id="hero" aria-label="메인 배너">
+      <div class="hero-inner">
+        <p class="hero-tagline" id="hero-tagline"></p>
+        <h1 class="hero-title" id="hero-title"></h1>
+        <p class="hero-subtitle" id="hero-subtitle"></p>
+        <div class="hero-buttons">
+          <a href="#about" class="btn btn-primary">더 알아보기</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" aria-labelledby="about-title">
+      <div class="container about-inner">
+        <h2 class="section-title" id="about-title"></h2>
+        <div class="section-body" id="about-body"></div>
+      </div>
+    </section>
+
+    <section id="vision" aria-labelledby="vision-title">
+      <div class="container">
+        <h2 class="section-title" id="vision-title">Vision · Mission · Values</h2>
+        <p class="section-sub">이룸라운지가 지향하는 방향과 가치입니다.</p>
+        <div class="vmv-grid" id="vmv-grid"></div>
+      </div>
+    </section>
+
+    <section id="projects" aria-labelledby="projects-title">
+      <div class="container">
+        <h2 class="section-title" id="projects-title">Projects</h2>
+        <p class="section-sub" id="projects-sub">지역과 청년을 위한 다양한 사업을 진행합니다.</p>
+        <div class="projects-grid" id="projects-grid"></div>
+      </div>
+    </section>
+
+    <section id="partners" aria-labelledby="partners-title">
+      <div class="container">
+        <h2 class="section-title" id="partners-title">Partners</h2>
+        <p class="section-sub">함께하는 기관과 단체입니다.</p>
+        <ul class="partners-list" id="partners-list"></ul>
+      </div>
+    </section>
+
+    <section id="news" aria-labelledby="news-title">
+      <div class="container">
+        <h2 class="section-title" id="news-title">이룸 소식</h2>
+        <p class="section-sub">최신 소식을 전합니다.</p>
+        <ul class="news-list" id="news-list"></ul>
+        <a id="news-more" class="more-btn" href="https://cafe.naver.com/erumlounge" target="_blank" rel="noopener noreferrer">더보기</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img id="footer-logo-img" class="logo-img footer-logo-img" src="" alt="이룸" />
+          <span class="footer-logo-text">
+            <span class="logo-main" id="footer-logo-kr">이룸라운지</span>
+            <span class="logo-sub" id="footer-logo-en">ERUM LOUNGE</span>
+          </span>
+        </div>
+        <div class="footer-contact" id="footer-contact"></div>
+        <div class="footer-links" id="footer-links"></div>
+      </div>
+      <div class="footer-bottom">
+        <p id="footer-copyright"></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      var DATA = null;
+
+      var fallbackData = {
+        brand: { nameKr: "이룸라운지", nameEn: "ERUM LOUNGE", logoUrl: "assets/logo.png", taglineTop: "가능성을 연결하고 성장을 만드는 교육 플랫폼", heroTitle: "이룸라운지", heroSubtitle: "가능성이 시작되는 곳." },
+        nav: [
+          { label: "홈", href: "#hero" },
+          { label: "소개", href: "#about" },
+          { label: "비전", href: "#vision" },
+          { label: "프로젝트", href: "#projects" },
+          { label: "파트너", href: "#partners" },
+          { label: "소식", href: "#news" }
+        ],
+        about: { title: "이룸이란", paragraphs: ["이룸은 \"가능성이 시작되는 곳\"입니다. 청소년과 청년이 스스로의 길을 발견하고 도전할 수 있도록 진로·창업·AI 교육과 다양한 경험의 기회를 제공합니다.", "지역과 함께 성장하는 협력 네트워크를 통해 사람과 아이디어가 연결되고, 새로운 변화가 만들어지는 공간을 만들어가고 있습니다.", "이룸은 오늘의 작은 경험이 내일의 가능성이 되도록 함께합니다."] },
+        vmv: {
+          vision: { title: "Vision", body: "모두가 자신의 삶에서 의미 있는 변화를 경험하고, 지역과 함께 성장하는 사회를 만듭니다." },
+          mission: { title: "Mission", body: "청년과 지역을 연결하고, 실험과 실행을 지원하며, 포용과 협력을 바탕으로 지속 가능한 생태계를 구축합니다." },
+          values: { title: "Values", items: ["연결", "실행", "성장", "포용", "협력"] }
+        },
+        projects: [
+          { title: "횡성진로체험지원센터", desc: "강원특별자치도 횡성교육지원청과 함께하는 진로체험 지원 사업입니다.", period: "2024-2026", tags: ["진로", "청소년"] },
+          { title: "강원RISE AI 직무 교육", desc: "연세대학교 미래캠퍼스에서 진행하는 AI 직무 교육 프로그램입니다.", period: "2026.01.", tags: ["AI", "교육"] },
+          { title: "진로의날 직업체험", desc: "영월초등학교와 함께한 진로의날 직업체험 프로그램입니다.", period: "2025.12.", tags: ["진로", "직업체험"] },
+          { title: "2025 청소년 자치배움터", desc: "강원특별자치도 원주교육지원청과 함께하는 청소년 자치배움터 운영입니다.", period: "2025.09.~12.", tags: ["청소년", "자치"] }
+        ],
+        partners: [
+          { name: "배움과나눔 협동조합", desc: "청년 진로 설정 및 취·창업 연계, 컨설팅 협력", period: "'24.05.~" },
+          { name: "(주)한국두드림교육", desc: "지역 청년 대상 진로·취업·창업 관련 교육 프로그램 협력", period: "'24.06.~" }
+        ],
+        news: [
+          { title: "이룸라운지 네트워킹 시작", date: "2026.02." },
+          { title: "MOU 협력기관 확대 최근 소식", date: "2026.01." }
+        ],
+        newsUrl: "https://cafe.naver.com/erumlounge",
+        contactInfo: { address: "강원특별자치도 원주시 입춘로 45, A동 516호 (연대 창업보육센터 확정 시 반영 예정, 2월 말)", tel: "033-742-2040", email: "careerum@naver.com" },
+        footer: { copyright: "© 2025 이룸라운지. All rights reserved." },
+        footerLinks: [
+          { label: "소개", href: "#about" },
+          { label: "프로젝트", href: "#projects" },
+          { label: "개인정보처리방침", href: "#" }
+        ]
+      };
+
+      function escapeHtml(str) {
+        if (!str) return '';
+        var div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      function renderNav() {
+        var nav = DATA.nav || [];
+        var desktop = document.getElementById('nav-desktop');
+        var drawer = document.getElementById('menu-drawer');
+        desktop.innerHTML = '';
+        drawer.innerHTML = '';
+        nav.forEach(function(item) {
+          var a = document.createElement('a');
+          a.href = item.href;
+          a.textContent = item.label;
+          a.setAttribute('data-section', item.href.slice(1));
+          desktop.appendChild(a.cloneNode(true));
+          drawer.appendChild(a);
+        });
+      }
+
+      function renderHero() {
+        var b = DATA.brand || {};
+        document.getElementById('hero-tagline').textContent = b.taglineTop || '';
+        document.getElementById('hero-title').textContent = b.heroTitle || '';
+        document.getElementById('hero-subtitle').textContent = b.heroSubtitle || '';
+        document.getElementById('logo-name-kr').textContent = b.nameKr || '이룸라운지';
+        document.getElementById('logo-name-en').textContent = b.nameEn || 'ERUM LOUNGE';
+        var logoImg = document.getElementById('logo-img');
+        var footerLogoImg = document.getElementById('footer-logo-img');
+        if (b.logoUrl) {
+          logoImg.src = b.logoUrl;
+          logoImg.alt = '이룸';
+          logoImg.style.display = '';
+          footerLogoImg.src = b.logoUrl;
+          footerLogoImg.alt = '이룸';
+          footerLogoImg.style.display = '';
+        } else {
+          logoImg.style.display = 'none';
+          footerLogoImg.style.display = 'none';
+        }
+        logoImg.onerror = function() { logoImg.style.display = 'none'; };
+        footerLogoImg.onerror = function() { footerLogoImg.style.display = 'none'; };
+      }
+
+      function renderAbout() {
+        var a = DATA.about || {};
+        document.getElementById('about-title').textContent = a.title || '';
+        var container = document.getElementById('about-body');
+        container.innerHTML = '';
+        if (a.paragraphs && a.paragraphs.length) {
+          a.paragraphs.forEach(function(para) {
+            var p = document.createElement('p');
+            p.className = 'about-para';
+            p.textContent = para;
+            container.appendChild(p);
+          });
+        } else if (a.body) {
+          var p = document.createElement('p');
+          p.className = 'about-para';
+          p.textContent = a.body;
+          container.appendChild(p);
+        }
+      }
+
+      function renderVMV() {
+        var vmv = DATA.vmv || {};
+        var grid = document.getElementById('vmv-grid');
+        grid.innerHTML = '';
+        if (vmv.vision) {
+          var v = document.createElement('div');
+          v.className = 'vmv-panel';
+          v.innerHTML = '<h3>' + escapeHtml(vmv.vision.title) + '</h3><p>' + escapeHtml(vmv.vision.body) + '</p>';
+          grid.appendChild(v);
+        }
+        if (vmv.mission) {
+          var m = document.createElement('div');
+          m.className = 'vmv-panel';
+          m.innerHTML = '<h3>' + escapeHtml(vmv.mission.title) + '</h3><p>' + escapeHtml(vmv.mission.body) + '</p>';
+          grid.appendChild(m);
+        }
+        if (vmv.values) {
+          var val = document.createElement('div');
+          val.className = 'vmv-panel';
+          var items = (vmv.values.items || []).map(function(i) { return '<li>' + escapeHtml(i) + '</li>'; }).join('');
+          val.innerHTML = '<h3>' + escapeHtml(vmv.values.title) + '</h3><ul>' + items + '</ul>';
+          grid.appendChild(val);
+        }
+      }
+
+      function renderProjects() {
+        var list = DATA.projects || [];
+        var grid = document.getElementById('projects-grid');
+        grid.innerHTML = '';
+        list.forEach(function(p) {
+          var tags = (p.tags || []).map(function(t) { return '<span class="tag">' + escapeHtml(t) + '</span>'; }).join('');
+          var period = p.period ? '<span class="project-period">' + escapeHtml(p.period) + '</span>' : '';
+          var card = document.createElement('div');
+          card.className = 'project-card';
+          card.innerHTML = '<h3>' + escapeHtml(p.title) + '</h3>' + period + '<p>' + escapeHtml(p.desc || '') + '</p><div class="project-tags">' + tags + '</div>';
+          grid.appendChild(card);
+        });
+      }
+
+      function renderPartners() {
+        var list = DATA.partners || [];
+        var ul = document.getElementById('partners-list');
+        ul.innerHTML = '';
+        list.forEach(function(item) {
+          var li = document.createElement('li');
+          li.className = 'partner-item';
+          if (typeof item === 'string') {
+            li.textContent = item;
+          } else {
+            var name = escapeHtml(item.name || '');
+            var desc = escapeHtml(item.desc || '');
+            var period = escapeHtml(item.period || '');
+            var link = item.link ? '<a href="' + escapeHtml(item.link) + '" target="_blank" rel="noopener" class="partner-link">보도자료</a>' : '';
+            li.innerHTML = '<span class="partner-name">' + name + '</span><span class="partner-desc">' + desc + '</span><span class="partner-period">' + period + '</span>' + link;
+          }
+          ul.appendChild(li);
+        });
+      }
+
+      function renderNews() {
+        var list = DATA.news || [];
+        var newsUrl = (DATA.newsUrl || 'https://cafe.naver.com/erumlounge');
+        var ul = document.getElementById('news-list');
+        ul.innerHTML = '';
+        list.forEach(function(n) {
+          var li = document.createElement('li');
+          li.className = 'news-item';
+          li.innerHTML = '<a href="' + escapeHtml(newsUrl) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(n.title) + '</a><span class="news-date">' + escapeHtml(n.date) + '</span>';
+          ul.appendChild(li);
+        });
+        var moreEl = document.getElementById('news-more');
+        if (moreEl) moreEl.href = newsUrl;
+      }
+
+      function renderFooter() {
+        var f = DATA.footer || {};
+        var links = DATA.footerLinks || [];
+        document.getElementById('footer-copyright').textContent = f.copyright || '';
+        document.getElementById('footer-logo-kr').textContent = (DATA.brand && DATA.brand.nameKr) || '이룸라운지';
+        document.getElementById('footer-logo-en').textContent = (DATA.brand && DATA.brand.nameEn) || 'ERUM LOUNGE';
+        if (DATA.brand && DATA.brand.logoUrl) {
+          var fl = document.getElementById('footer-logo-img');
+          fl.src = DATA.brand.logoUrl;
+          fl.onerror = function() { fl.style.display = 'none'; };
+        }
+        var contact = DATA.contactInfo || {};
+        document.getElementById('footer-contact').innerHTML = '전화: ' + escapeHtml(contact.tel || '') + '<br>이메일: ' + escapeHtml(contact.email || '');
+        var linksEl = document.getElementById('footer-links');
+        linksEl.innerHTML = '';
+        links.forEach(function(link) {
+          var a = document.createElement('a');
+          a.href = link.href;
+          a.textContent = link.label;
+          linksEl.appendChild(a);
+        });
+      }
+
+      function renderAll() {
+        renderNav();
+        renderHero();
+        renderAbout();
+        renderVMV();
+        renderProjects();
+        renderPartners();
+        renderNews();
+        renderFooter();
+      }
+
+      function initSmoothScroll() {
+        var header = document.querySelector('.site-header');
+        var headerHeight = header ? header.offsetHeight : 72;
+        document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+          var href = a.getAttribute('href');
+          if (href === '#') return;
+          a.addEventListener('click', function(e) {
+            var id = href.slice(1);
+            var el = document.getElementById(id);
+            if (el) {
+              e.preventDefault();
+              var top = el.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+              window.scrollTo({ top: top, behavior: 'smooth' });
+              document.body.classList.remove('menu-open');
+            }
+          });
+        });
+      }
+
+      function initMobileMenu() {
+        var hamburger = document.getElementById('hamburger');
+        var overlay = document.getElementById('menu-overlay');
+        var drawer = document.getElementById('menu-drawer');
+        function open() {
+          document.body.classList.add('menu-open', 'no-scroll');
+          hamburger.setAttribute('aria-label', '메뉴 닫기');
+          hamburger.setAttribute('aria-expanded', 'true');
+          overlay.setAttribute('aria-hidden', 'false');
+        }
+        function close() {
+          document.body.classList.remove('menu-open', 'no-scroll');
+          hamburger.setAttribute('aria-label', '메뉴 열기');
+          hamburger.setAttribute('aria-expanded', 'false');
+          overlay.setAttribute('aria-hidden', 'true');
+        }
+        hamburger.addEventListener('click', function() {
+          if (document.body.classList.contains('menu-open')) close(); else open();
+        });
+        overlay.addEventListener('click', close);
+        drawer.querySelectorAll('a').forEach(function(a) {
+          a.addEventListener('click', close);
+        });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && document.body.classList.contains('menu-open')) close();
+        });
+      }
+
+      function initActiveNav() {
+        var sectionIds = ['hero', 'about', 'vision', 'projects', 'partners', 'news'];
+        var observer = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (!entry.isIntersecting) return;
+            var id = entry.target.id;
+            document.querySelectorAll('.nav-desktop a, .menu-drawer a').forEach(function(a) {
+              if ((a.getAttribute('href') || '').slice(1) === id) a.classList.add('active');
+              else a.classList.remove('active');
+            });
+          });
+        }, { rootMargin: '-20% 0px -60% 0px', threshold: 0 });
+        sectionIds.forEach(function(id) {
+          var el = document.getElementById(id);
+          if (el) observer.observe(el);
+        });
+      }
+
+      function loadData() {
+        return fetch('./data.json')
+          .then(function(r) { return r.json(); })
+          .then(function(d) { DATA = d; })
+          .catch(function() { DATA = fallbackData; });
+      }
+
+      loadData().then(function() {
+        renderAll();
+        initSmoothScroll();
+        initMobileMenu();
+        initActiveNav();
+      });
+    })();
+  </script>
+</body>
+</html>
